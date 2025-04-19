@@ -8,6 +8,7 @@
     <meta name="author" content="Tulasi Ram Mada">
     <title>Tulasi Ram Mada - Business Analyst Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
             --primary: #1d4ed8;
@@ -15,15 +16,16 @@
             --secondary: #10b981;
             --background: #f8fafc;
             --background-dark: #0f172a;
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --card-bg-dark: rgba(31, 41, 55, 0.85);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-bg-dark: rgba(31, 41, 55, 0.95);
             --text: #1e293b;
             --text-light: #64748b;
             --text-dark: #e2e8f0;
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
-            --border-radius: 12px;
+            --border-radius: 16px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --accent: #f97316;
         }
 
         * {
@@ -36,10 +38,11 @@
 
         body {
             background: var(--background);
-            color: var(--text اوطوالطول);
+            color: var(--text);
             transition: var(--transition);
             font-size: 16px;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         body.dark-mode {
@@ -52,6 +55,7 @@
             top: 0;
             width: 100%;
             background: var(--card-bg);
+            backdrop-filter: blur(10px);
             box-shadow: var(--shadow);
             padding: 1rem 5rem;
             display: flex;
@@ -99,7 +103,7 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background: var(--primary);
+            background: var(--accent);
             transition: width 0.3s ease;
         }
 
@@ -109,7 +113,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .theme-toggle {
@@ -136,7 +140,7 @@
         }
 
         .btn {
-            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(45deg, var(--primary), var(--accent));
             color: #fff;
             padding: 0.75rem 1.5rem;
             text-decoration: none;
@@ -145,6 +149,9 @@
             position: relative;
             overflow: hidden;
             transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn:hover {
@@ -199,15 +206,16 @@
 
         .hero {
             text-align: center;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            position: relative;
         }
 
         .hero h1 {
             font-size: 4.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background: linear-gradient(45deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -224,6 +232,21 @@
             color: var(--text-dark);
         }
 
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            border: 4px solid var(--primary);
+            box-shadow: var(--shadow);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.05);
+        }
+
         @keyframes fadeInUp {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
@@ -235,7 +258,7 @@
             margin: 1rem 0;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: var(--transition);
             will-change: transform;
         }
@@ -265,7 +288,7 @@
             content: '→';
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .timeline {
@@ -283,7 +306,7 @@
             height: 100%;
             background: linear-gradient(var(--primary), var(--secondary));
             transform: translateX(-50%);
-            opacity: 0.2;
+            opacity: 0.3;
         }
 
         .timeline-item {
@@ -317,7 +340,7 @@
             border-radius: var(--border-radius);
             text-align: center;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         body.dark-mode .skills-grid div {
@@ -334,6 +357,7 @@
             gap: 1rem;
             margin-bottom: 2rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
@@ -344,6 +368,7 @@
             border-radius: var(--border-radius);
             cursor: pointer;
             transition: var(--transition);
+            font-weight: 500;
         }
 
         body.dark-mode .filter-btn {
@@ -353,7 +378,7 @@
 
         .filter-btn.active,
         .filter-btn:hover {
-            background: var(--primary);
+            background: var(--accent);
             color: #fff;
             transform: translateY(-2px);
         }
@@ -380,7 +405,7 @@
         .metric-card h4 {
             font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background: linear-gradient(45deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -389,6 +414,40 @@
 
         .metric-card:hover {
             transform: scale(1.05);
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            transition: transform 0.5s ease;
+            loading: lazy;
+        }
+
+        .project:hover .project-image {
+            transform: scale(1.03);
+        }
+
+        .resume-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .resume-viewer {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
         }
 
         #contact-form {
@@ -402,7 +461,7 @@
         #contact-form input,
         #contact-form textarea {
             padding: 1rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: var(--border-radius);
             font-size: 1rem;
             transition: var(--transition);
@@ -412,15 +471,20 @@
         body.dark-mode #contact-form input,
         body.dark-mode #contact-form textarea {
             background: var(--card-bg-dark);
-            border-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
             color: var(--text-dark);
         }
 
         #contact-form input:focus,
         #contact-form textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 8px rgba(29, 78, 216, 0.3);
+            border-color: var(--accent);
+            box-shadow: 0 0 12px rgba(249, 115, 22, 0.3);
             outline: none;
+        }
+
+        #contact-form input:invalid:not(:placeholder-shown),
+        #contact-form textarea:invalid:not(:placeholder-shown) {
+            border-color: #ef4444;
         }
 
         #contact-form textarea {
@@ -429,7 +493,7 @@
         }
 
         #contact-form button {
-            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(45deg, var(--primary), var(--accent));
             color: #fff;
             padding: 1rem;
             border: none;
@@ -437,6 +501,10 @@
             cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         #contact-form button:hover {
@@ -444,12 +512,28 @@
             box-shadow: var(--shadow);
         }
 
+        #form-message {
+            text-align: center;
+            font-weight: 500;
+        }
+
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             background: var(--primary-dark);
             color: var(--text-dark);
             font-size: 0.9rem;
+            position: relative;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--accent);
         }
 
         body.dark-mode footer {
@@ -471,6 +555,10 @@
 
             h2 {
                 font-size: 2.5rem;
+            }
+
+            .resume-viewer {
+                height: 500px;
             }
         }
 
@@ -511,8 +599,9 @@
                 font-size: 1.2rem;
             }
 
-            .filter-buttons {
-                flex-wrap: wrap;
+            .hero-image {
+                width: 150px;
+                height: 150px;
             }
 
             .timeline::before {
@@ -522,6 +611,10 @@
             .timeline-item {
                 margin-left: 40px;
                 margin-right: 20px;
+            }
+
+            .resume-viewer {
+                height: 400px;
             }
         }
 
@@ -542,6 +635,10 @@
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
             }
+
+            .resume-viewer {
+                height: 300px;
+            }
         }
 
         .fade-in {
@@ -556,7 +653,7 @@
         }
 
         :focus-visible {
-            outline: 3px solid var(--primary);
+            outline: 3px solid var(--accent);
             outline-offset: 2px;
         }
 
@@ -564,6 +661,28 @@
         .metric-card,
         .skills-grid div {
             will-change: transform, box-shadow;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        body.dark-mode .social-links a {
+            color: var(--text-dark);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -573,6 +692,7 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#resume">Resume</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -583,18 +703,19 @@
         </ul>
         <div class="theme-toggle">
             <input type="checkbox" id="theme-switch" aria-label="Toggle dark mode">
-            <label for="theme-switch">��</label>
+            <label for="theme-switch"><i class="fas fa-moon"></i></label>
         </div>
         <div class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</div>
     </nav>
 
     <section id="home" class="section fade-in">
         <div class="hero">
+            <img src="RAM'S.JPG" alt="Tulasi Ram Mada headshot" class="hero-image" loading="lazy">
             <h1>Tulasi Ram Mada</h1>
             <p>Business Analyst | Data Analyst | Agile Practitioner</p>
-            <div style="display: flex; gap: 16px; justify-content: center;">
-                <a href="#contact" class="btn">Connect with Me</a>
-                <a href="#" class="btn" id="resume-download">Download Resume</a>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn"><i class="fas fa-envelope"></i> Connect with Me</a>
+                <a href="#resume" class="btn"><i class="fas fa-file-pdf"></i> View Resume</a>
             </div>
         </div>
     </section>
@@ -604,11 +725,21 @@
         <div class="card">
             <p>I’m a Computer Information Systems graduate student at Rivier University with a passion for driving business success through data-driven insights and Agile methodologies. I specialize in stakeholder engagement, process optimization, and delivering measurable results.</p>
             <ul>
-                <li>�� Nashua, NH</li>
-                <li>�� <a href="mailto:tmada@rivier.edu">tmada@rivier.edu</a></li>
-                <li>�� <a href="https://linkedin.com/in/tulasi-ram-mada">LinkedIn</a></li>
-                <li>�� 603-682-1883</li>
+                <li><i class="fas fa-map-marker-alt"></i> Nashua, NH</li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:tmada@rivier.edu">tmada@rivier.edu</a></li>
+                <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/tulasi-ram-mada">LinkedIn</a></li>
+                <li><i class="fas fa-phone"></i> 603-682-1883</li>
             </ul>
+        </div>
+    </section>
+
+    <section id="resume" class="section fade-in">
+        <h2>My Resume</h2>
+        <div class="resume-section">
+            <iframe src="TMada (4).pdf" class="resume-viewer" title="Tulasi Ram Mada Resume"></iframe>
+            <div style="text-align: center;">
+                <a href="TMada (4)" download class="btn"><i class="fas fa-download"></i> Download Resume</a>
+            </div>
         </div>
     </section>
 
@@ -652,6 +783,7 @@
         </div>
         <div class="project-list">
             <div class="card project" data-category="data agile">
+                <img src="https://via.placeholder.com/600x400?text=Escape+Room+Project" alt="Escape Room Puzzle System" class="project-image">
                 <h3>Escape Room Puzzle System</h3>
                 <p>Python, PostgreSQL, Agile, Jira | Sep 2023</p>
                 <ul>
@@ -661,6 +793,7 @@
                     <li>Achieved 95% user satisfaction in prototype testing.</li>
                 </ul>
             </div>
+            <!-- Add more projects as needed -->
         </div>
     </section>
 
@@ -715,16 +848,21 @@
     <section id="contact" class="section fade-in">
         <h2>Contact Me</h2>
         <form id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="name" placeholder="Your Name" required pattern="[A-Za-z\s]{2,}">
             <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+            <textarea id="message" placeholder="Your Message" required minlength="10"></textarea>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
             <p id="form-message"></p>
         </form>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/tulasi-ram-mada" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:tmada@rivier.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/your-github" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
     </section>
 
     <footer>
-        <p>© 2025 Tulasi Ram Mada. All rights reserved.</p>
+        <p>© 2025 Tulasi Ram Mada. All rights reserved. | <a href="#contact">Get in Touch</a></p>
     </footer>
 
     <script>
@@ -738,13 +876,14 @@
                     navLinks.classList.toggle('active');
                     const isExpanded = navLinks.classList.contains('active');
                     hamburger.setAttribute('aria-expanded', isExpanded);
+                    hamburger.textContent = isExpanded ? '✕' : '☰';
                 });
 
-                // Close menu when a link is clicked (mobile)
                 document.querySelectorAll('.nav-links a').forEach(link => {
                     link.addEventListener('click', () => {
                         navLinks.classList.remove('active');
                         hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.textContent = '☰';
                     });
                 });
             }
@@ -768,42 +907,42 @@
                 themeSwitch.addEventListener('change', () => {
                     document.body.classList.toggle('dark-mode');
                     localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+                    themeSwitch.nextElementSibling.querySelector('i').className = document.body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
                 });
 
-                // Load Theme Preference
                 if (localStorage.getItem('theme') === 'dark') {
                     document.body.classList.add('dark-mode');
                     themeSwitch.checked = true;
+                    themeSwitch.nextElementSibling.querySelector('i').className = 'fas fa-sun';
                 }
             }
 
-            // Contact Form Submission (Mock API)
+            // Contact Form Submission
             const form = document.getElementById('contact-form');
             const formMessage = document.getElementById('form-message');
 
             if (form && formMessage) {
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    const name = document.getElementById('name')?.value;
-                    const email = document.getElementById('email')?.value;
-                    const message = document.getElementById('message')?.value;
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const message = document.getElementById('message').value.trim();
 
-                    if (name && email && message) {
+                    if (form.checkValidity()) {
                         formMessage.textContent = 'Submitting...';
-                        formMessage.style.color = '#3b82f6';
+                        formMessage.style.color = 'var(--primary)';
                         try {
-                            // Simulate API call
                             await new Promise(resolve => setTimeout(resolve, 1000));
                             formMessage.textContent = 'Message sent successfully!';
-                            formMessage.style.color = 'green';
+                            formMessage.style.color = 'var(--secondary)';
                             form.reset();
                         } catch {
                             formMessage.textContent = 'Failed to send message.';
-                            formMessage.style.color = 'red';
+                            formMessage.style.color = '#ef4444';
                         }
                     } else {
-                        formMessage.textContent = 'Please fill out all fields.';
-                        formMessage.style.color = 'red';
+                        formMessage.textContent = 'Please fill out all fields correctly.';
+                        formMessage.style.color = '#ef4444';
                     }
                 });
             }
@@ -819,22 +958,30 @@
 
                     const filter = button.dataset.filter;
                     projects.forEach(project => {
+                        project.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
                         if (filter === 'all' || project.dataset.category.includes(filter)) {
                             project.style.display = 'block';
+                            project.style.opacity = '1';
+                            project.style.transform = 'translateY(0)';
                         } else {
-                            project.style.display = 'none';
+                            project.style.opacity = '0';
+                            project.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                project.style.display = 'none';
+                            }, 300);
                         }
                     });
                 });
             });
 
-            // Scroll Animations (with fallback for older browsers)
+            // Scroll Animations
             const sections = document.querySelectorAll('.section');
             if ('IntersectionObserver' in window) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
                         }
                     });
                 }, { threshold: 0.1 });
@@ -844,7 +991,6 @@
                     observer.observe(section);
                 });
             } else {
-                // Fallback: Show all sections immediately
                 sections.forEach(section => {
                     section.classList.add('visible');
                 });
@@ -853,22 +999,27 @@
             // Keyboard Navigation
             document.querySelectorAll('.nav-links a, .btn, #contact-form input, #contact-form textarea, #contact-form button').forEach(el => {
                 el.addEventListener('focus', () => {
-                    el.style.outline = '2px solid #3b82f6';
+                    el.style.outline = '3px solid var(--accent)';
                 });
                 el.addEventListener('blur', () => {
                     el.style.outline = 'none';
                 });
             });
 
-            // Handle Resume Download (Placeholder)
-            const resumeButton = document.getElementById('resume-download');
-            if (resumeButton) {
-                resumeButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    alert('Please provide a valid resume.pdf file in the same directory or update the link.');
-                    // Uncomment below if you have a valid resume URL
-                    // window.location.href = 'path/to/resume.pdf';
-                });
+            // Lazy Load Images
+            if ('IntersectionObserver' in window) {
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src || img.src;
+                            observer.unobserve(img);
+                        }
+                    });
+                }, { rootMargin: '100px' });
+
+                images.forEach(img => imageObserver.observe(img));
             }
         });
     </script>
